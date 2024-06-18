@@ -4,7 +4,10 @@
     "keywords": [
         "Corneel-D",
         "laravel",
-        "filament-astrotomic-translatable"
+        "filament-astrotomic-translatable",
+        "filament",
+        "astrotomic",
+        "laravel-translatable"
     ],
     "homepage": "https://github.com/corneel-d/filament-astrotomic-translatable",
     "support": {
