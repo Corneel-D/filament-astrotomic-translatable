@@ -9,7 +9,8 @@ use Filament\Forms\Components\Tabs\Tab;
 use Filament\Support\Concerns\CanBeContained;
 use Filament\Support\Concerns\HasExtraAlpineAttributes;
 
-class TranslatableField extends Component {
+class TranslatableField extends Component
+{
     use CanBeContained;
     use HasExtraAlpineAttributes;
 
@@ -20,7 +21,7 @@ class TranslatableField extends Component {
 
     protected int | Closure $activeTab = 1;
 
-    public static function make(Field $field = null): static
+    public static function make(?Field $field = null): static
     {
         $static = app(static::class);
         $static->configure();
@@ -40,7 +41,7 @@ class TranslatableField extends Component {
     }
 
     /**
-     * @param array<Field> $fields
+     * @param  array<Field>  $fields
      * @return Translatable
      */
     protected function fields(array $fields): static

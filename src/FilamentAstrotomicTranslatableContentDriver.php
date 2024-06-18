@@ -54,7 +54,7 @@ class FilamentAstrotomicTranslatableContentDriver implements TranslatableContent
 
     public function setRecordLocale(Model $record): Model
     {
-        if (!method_exists($record, 'setLocale')) {
+        if (! method_exists($record, 'setLocale')) {
             return $record;
         }
 
@@ -78,6 +78,6 @@ class FilamentAstrotomicTranslatableContentDriver implements TranslatableContent
             $search = strtolower($search);
         }
 
-        return $query->{$whereClause . "TranslationLike"}($column, "%{$search}%", $this->activeLocale);
+        return $query->{$whereClause . 'TranslationLike'}($column, "%{$search}%", $this->activeLocale);
     }
 }

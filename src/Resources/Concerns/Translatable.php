@@ -2,8 +2,8 @@
 
 namespace CorneelD\FilamentAstrotomicTranslatable\Resources\Concerns;
 
-use Exception;
 use Astrotomic\Translatable\Translatable as TranslatableModel;
+use Exception;
 
 trait Translatable
 {
