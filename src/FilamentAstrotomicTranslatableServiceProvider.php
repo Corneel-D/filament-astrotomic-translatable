@@ -2,6 +2,8 @@
 
 namespace CorneelD\FilamentAstrotomicTranslatable;
 
+use CorneelD\FilamentAstrotomicTranslatable\Commands\FilamentAstrotomicTranslatableCommand;
+use CorneelD\FilamentAstrotomicTranslatable\Testing\TestsFilamentAstrotomicTranslatable;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
@@ -13,8 +15,6 @@ use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
-use CorneelD\FilamentAstrotomicTranslatable\Commands\FilamentAstrotomicTranslatableCommand;
-use CorneelD\FilamentAstrotomicTranslatable\Testing\TestsFilamentAstrotomicTranslatable;
 
 class FilamentAstrotomicTranslatableServiceProvider extends PackageServiceProvider
 {
