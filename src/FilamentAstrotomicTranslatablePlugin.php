@@ -1,15 +1,15 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace CorneelD\FilamentAstrotomicTranslatable;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-class SkeletonPlugin implements Plugin
+class FilamentAstrotomicTranslatablePlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'skeleton';
+        return 'filament-astrotomic-translatable';
     }
 
     public function register(Panel $panel): void
