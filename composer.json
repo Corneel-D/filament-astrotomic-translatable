@@ -66,10 +66,7 @@
         "laravel": {
             "providers": [
                 "CorneelD\\FilamentAstrotomicTranslatable\\FilamentAstrotomicTranslatableServiceProvider"
-            ],
-            "aliases": {
-                "FilamentAstrotomicTranslatable": "CorneelD\\FilamentAstrotomicTranslatable\\Facades\\FilamentAstrotomicTranslatable"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",
