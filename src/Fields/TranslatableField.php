@@ -42,7 +42,6 @@ class TranslatableField extends Component
 
     /**
      * @param  array<Field>  $fields
-     * @return static
      */
     protected function fields(array $fields): static
     {
