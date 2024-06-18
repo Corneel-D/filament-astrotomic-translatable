@@ -32,7 +32,7 @@ class FilamentAstrotomicTranslatableContentDriver implements TranslatableContent
     {
         $recordData = $record->attributesToArray();
 
-        if (! property_exists($record, 'attributesToArray')) {
+        if (! method_exists($record, 'getTranslationsArray')) {
             return $recordData;
         }
         $translatedData = $record->getTranslationsArray();
