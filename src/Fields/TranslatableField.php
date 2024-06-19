@@ -43,7 +43,7 @@ class TranslatableField extends Component
     /**
      * @param  array<Field>  $fields
      */
-    protected function fields(array $fields): static
+    public function fields(array $fields): static
     {
         $tabs = array_map(function ($locale) use ($fields) {
             $localizedFields = array_map(function (Field $field) use ($locale) {
