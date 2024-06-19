@@ -10,6 +10,7 @@ use Filament\Support\Assets\Css;
 use Filament\Support\Assets\Js;
 use Filament\Support\Facades\FilamentAsset;
 use Filament\Support\Facades\FilamentIcon;
+use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Filesystem\Filesystem;
 use Livewire\Features\SupportTesting\Testable;
 use Spatie\LaravelPackageTools\Commands\InstallCommand;
@@ -87,6 +88,24 @@ class FilamentAstrotomicTranslatableServiceProvider extends PackageServiceProvid
 
         // Testing
         Testable::mixin(new TestsFilamentAstrotomicTranslatable());
+
+        Blueprint::macro('defaultTranslationsTableFields', function (string $tableNameSingular, bool $softDeletes = true, $withActive = true) {
+            /** @var Blueprint $this */
+            $this->id();
+            $this->foreignId("{$tableNameSingular}_id")->constrained()->cascadeOnDelete();
+
+            $this->string('locale', 7)->index();
+            if ($withActive) {
+                $this->boolean('active')->default(true);
+            }
+
+            $this->unique(["{$tableNameSingular}_id", 'locale'], "{$tableNameSingular}_id_locale_unique");
+
+            $this->timestamps();
+            if ($softDeletes) {
+                $this->softDeletes();
+            }
+        });
     }
 
     protected function getAssetPackageName(): ?string
