@@ -145,8 +145,6 @@ class FilamentAstrotomicTranslatableServiceProvider extends PackageServiceProvid
      */
     protected function getMigrations(): array
     {
-        return [
-            'create_filament-astrotomic-translatable_table',
-        ];
+        return [];
     }
 }
