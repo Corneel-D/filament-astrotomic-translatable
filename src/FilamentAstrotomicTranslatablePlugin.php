@@ -7,6 +7,8 @@ use Filament\Panel;
 
 class FilamentAstrotomicTranslatablePlugin implements Plugin
 {
+    protected array $defaultActiveLocales = [];
+
     public function getId(): string
     {
         return 'filament-astrotomic-translatable';
@@ -33,5 +35,17 @@ class FilamentAstrotomicTranslatablePlugin implements Plugin
         $plugin = filament(app(static::class)->getId());
 
         return $plugin;
+    }
+
+    public function getDefaultActiveLocales(): array
+    {
+        return $this->defaultActiveLocales;
+    }
+
+    public function setDefaultActiveLocales(array $defaultActiveLocales): static
+    {
+        $this->defaultActiveLocales = $defaultActiveLocales;
+
+        return $this;
     }
 }
