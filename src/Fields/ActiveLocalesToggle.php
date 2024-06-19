@@ -44,7 +44,7 @@ class ActiveLocalesToggle extends Fieldset
 
     protected function getDefaultActiveLocales(): array
     {
-        /** @var CorneelD\FilamentAstrotomicTranslatable\FilamentAstrotomicTranslatablePlugin $plugin */
+        /** @var \CorneelD\FilamentAstrotomicTranslatable\FilamentAstrotomicTranslatablePlugin $plugin */
         $plugin = filament('filament-astrotomic-translatable');
 
         return $plugin->getDefaultActiveLocales();

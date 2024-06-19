@@ -42,8 +42,7 @@
     },
     "autoload": {
         "psr-4": {
-            "CorneelD\\FilamentAstrotomicTranslatable\\": "src/",
-            "CorneelD\\FilamentAstrotomicTranslatable\\Database\\Factories\\": "database/factories/"
+            "CorneelD\\FilamentAstrotomicTranslatable\\": "src/"
         }
     },
     "autoload-dev": {
