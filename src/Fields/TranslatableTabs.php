@@ -6,14 +6,12 @@ use Closure;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Tabs;
-use Filament\Forms\Components\Tabs\Tab;
 
 class TranslatableTabs extends Tabs
 {
     /**
      * @param  array<Component> | Closure  $components
      */
-
     public function schema(array | Closure $components): static
     {
         $tabs = array_map(function ($locale) use ($components) {
@@ -36,8 +34,6 @@ class TranslatableTabs extends Tabs
     //             $localizedField->name("{$locale}.{$field->getName()}");
     //             $localizedField->statePath("{$locale}.{$field->getName()}");
     //             $localizedField->label("{$field->getName()} ({$locale})");
-
-
 
     //             return $localizedField;
     //         }, $components);
