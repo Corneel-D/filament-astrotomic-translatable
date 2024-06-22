@@ -4,7 +4,6 @@ namespace CorneelD\FilamentAstrotomicTranslatable;
 
 use CorneelD\FilamentAstrotomicTranslatable\Commands\FilamentAstrotomicTranslatableCommand;
 use CorneelD\FilamentAstrotomicTranslatable\Testing\TestsFilamentAstrotomicTranslatable;
-use Filament\Forms\Components\Field;
 use Filament\Support\Assets\AlpineComponent;
 use Filament\Support\Assets\Asset;
 use Filament\Support\Assets\Css;
@@ -89,14 +88,6 @@ class FilamentAstrotomicTranslatableServiceProvider extends PackageServiceProvid
 
         // Testing
         Testable::mixin(new TestsFilamentAstrotomicTranslatable());
-
-        Field::macro('translatable', function () {
-            /** @var Field $this */
-
-            $this->translatable = true;
-
-            return $this;
-        });
 
         Blueprint::macro('defaultTranslationsTableFields', function (string $tableNameSingular, bool $softDeletes = true, $withActive = true) {
             /** @var Blueprint $this */

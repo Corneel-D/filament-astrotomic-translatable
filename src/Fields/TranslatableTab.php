@@ -2,8 +2,12 @@
 
 namespace CorneelD\FilamentAstrotomicTranslatable\Fields;
 
+use Astrotomic\Translatable\Contracts\Translatable;
 use Closure;
+use Filament\Forms\Components\Component;
+use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Tabs\Tab;
+use Illuminate\Database\Eloquent\Model;
 
 class TranslatableTab extends Tab
 {
@@ -17,23 +21,33 @@ class TranslatableTab extends Tab
      */
     public function schema(array | Closure $components): static
     {
-        $components = $this->evaluate($components);
+        $localizedComponents = function (?Model $record) use ($components) {
+            $this->evaluate($components);
 
-        $localizedComponents = array_map(function ($component) {
-            if (!property_exists($component, 'translatable') || !$component->translatable) {
-                return $component;
+            if (! $record instanceof Translatable) {
+                return $components;
             }
 
-            $locale = $this->getLocale();
+            $localizedComponents = array_map(function ($component) use ($record) {
+                if (! $component instanceof Field
+                    || ! $record->isTranslationAttribute($component->getName())
+                ) {
+                    return $component;
+                }
 
-            $localizedComponent = clone $component;
+                $locale = $this->getLocale();
 
-            $localizedComponent->name("{$locale}.{$component->getName()}");
-            $localizedComponent->statePath("{$locale}.{$component->getName()}");
-            $localizedComponent->label("{$component->getLabel()} ({$locale})");
+                $localizedComponent = clone $component;
 
-            return $localizedComponent;
-        }, $components);
+                $localizedComponent->name("{$locale}.{$component->getName()}");
+                $localizedComponent->statePath("{$locale}.{$component->getName()}");
+                $localizedComponent->label("{$component->getLabel()} ({$locale})");
+
+                return $localizedComponent;
+            }, $components);
+
+            return $localizedComponents;
+        };
 
         $this->childComponents($localizedComponents);
 
