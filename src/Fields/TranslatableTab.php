@@ -7,7 +7,6 @@ use Closure;
 use Filament\Forms\Components\Component;
 use Filament\Forms\Components\Field;
 use Filament\Forms\Components\Tabs\Tab;
-use Illuminate\Database\Eloquent\Model;
 
 class TranslatableTab extends Tab
 {
