@@ -21,16 +21,17 @@ class TranslatableTab extends Tab
      */
     public function schema(array | Closure $components): static
     {
-        $localizedComponents = function (?Model $record) use ($components) {
+        $localizedComponents = function (Component $component) use ($components) {
             $this->evaluate($components);
 
-            if (! $record instanceof Translatable) {
+            $model = $component->getModelInstance();
+            if (! $model instanceof Translatable) {
                 return $components;
             }
 
-            $localizedComponents = array_map(function ($component) use ($record) {
+            $localizedComponents = array_map(function ($component) use ($model) {
                 if (! $component instanceof Field
-                    || ! $record->isTranslationAttribute($component->getName())
+                    || ! $model->isTranslationAttribute($component->getName())
                 ) {
                     return $component;
                 }
