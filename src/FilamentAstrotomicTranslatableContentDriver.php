@@ -68,6 +68,8 @@ class FilamentAstrotomicTranslatableContentDriver implements TranslatableContent
     {
         $record->fill($data);
 
+        $record->save();
+
         return $record;
     }
 
